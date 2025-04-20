@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+    content="PHYBench: Holistic Evaluation of Physical Perception and Reasoning in Large Language Models">
+  <meta name="keywords" content="PHYBench, Large Language Models, Physical Perception, Physical Reasoning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>PHYBench: Holistic Evaluation of Physical Perception and Reasoning in Large Language Models</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/favicon.ico">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -52,7 +52,7 @@
     </div>
     <div class="navbar-menu">
       <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <a class="navbar-item" href="https://keunhong.com">
+        <a title="home" ="navbar-item" href="https://stephenqsstarthomas.github.io">
           <span class="icon">
             <i class="fas fa-home"></i>
           </span>
@@ -63,17 +63,17 @@
             More Research
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://hypernerf.github.io">
-              HyperNeRF
+            <a class="navbar-item" href="https://stephenqsstarthomas.github.io">
+              AAA
             </a>
-            <a class="navbar-item" href="https://nerfies.github.io">
-              Nerfies
+            <a class="navbar-item" href="https://stephenqsstarthomas.github.io">
+              AAA
             </a>
-            <a class="navbar-item" href="https://latentfusion.github.io">
-              LatentFusion
+            <a class="navbar-item" href="https://stephenqsstarthomas.github.io">
+              AAA
             </a>
-            <a class="navbar-item" href="https://photoshape.github.io">
-              PhotoShape
+            <a class="navbar-item" href="https://stephenqsstarthomas.github.io">
+              AAA
             </a>
           </div>
         </div>
@@ -88,39 +88,70 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+            <h1 class="title is-1 publication-title">PHYBench: Holistic Evaluation of Physical Perception and Reasoning in Large Language Models</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+                <a href="https://stephenqsstarthomas.github.io">Shi Qiu</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+                Shaoyang Guo</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
-              </span>
+                Zhuo-Yang Song</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
-              </span>
+                Yunbo Sun</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-              </span>
+                Zeyu Cai</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-              </span>
+                Jiashen Wei<sup>1</sup>,</span>
               <span class="author-block">
-                <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
-              </span>
+                Tianyu Luo<sup>1</sup>,</span>
+              <span class="author-block">
+                Yixuan Yin<sup>1</sup>,</span>
+              <span class="author-block">
+                Haoxu Zhang<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://aheadofpotato.github.io">Yi Hu</a><sup>2</sup>,</span>
+              <span class="author-block">
+                Chenyang Wang<sup>1</sup>,</span>
+              <span class="author-block">
+                Chencheng Tang<sup>1</sup>,</span>
+              <span class="author-block">
+                Haoling Chang<sup>1</sup>,</span>
+              <span class="author-block">
+                Qi Liu<sup>1</sup>,</span>
+              <span class="author-block">
+                Ziheng Zhou<sup>1</sup>,</span>
+              <span class="author-block">
+                Tianyu Zhang<sup>1</sup>,</span>
+              <span class="author-block">
+                Qihua Sun<sup>1</sup>,</span>
+              <span class="author-block">
+                Zhou Liang<sup>1</sup>,</span>
+              <span class="author-block">
+                Yuku Zhang<sup>1</sup>,</span>
+              <span class="author-block">
+                Zhangyi Liu<sup>1</sup>,</span>
+              <span class="author-block">
+                Weike Wang<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://faculty.pku.edu.cn/caoqinghong/zh_CN/index.htm">Qing-Hong Cao</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://muhanzhang.github.io">Muhan Zhang</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://konformal.github.io">Hua Xing Zhu</a><sup>1</sup>,</span>
+              
             </div>
+            
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>University of Washington,</span>
-              <span class="author-block"><sup>2</sup>Google Research</span>
+              <span class="author-block"><sup>1</sup>School of Physics, Peking University,</span>
+              <span class="author-block"><sup>2</sup>Institute for Artificial Intelligence, Peking University</span>
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/pdf/xxxx.xxxxx" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -128,26 +159,16 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/xxxx.xxxxx" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
                     <span>arXiv</span>
                   </a>
                 </span>
-                <!-- Video Link. -->
-                <span class="link-block">
-                  <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                    </span>
-                    <span>Video</span>
-                  </a>
-                </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/google/nerfies" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/phybench-official" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -156,7 +177,7 @@
                 </span>
                 <!-- Dataset Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                  <a href="https://github.com/phybench-official"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="far fa-images"></i>
@@ -175,13 +196,12 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video id="teaser" autoplay muted loop playsinline height="100%">
-          <source src="./static/videos/teaser.mp4" type="video/mp4">
-        </video>
+        <div class="hero-body-image">
+          <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
+        </div>
         <h2 class="subtitle has-text-centered">
-          <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-          free-viewpoint
-          portraits.
+          <span class="dnerf">PHYBench</span> is a benchmark for evaluating the physical reasoning capabilities of large
+          language models.
         </h2>
       </div>
     </div>
@@ -193,44 +213,28 @@
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item item-steve">
-            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/steve.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-chair-tp">
-            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/chair-tp.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-shiba">
-            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/shiba.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-fullbody">
-            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/fullbody.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-blueshirt">
-            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/blueshirt.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-mask">
-            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/mask.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-coffee">
-            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/coffee.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
           <div class="item item-toby">
-            <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/toby2.mp4" type="video/mp4">
-            </video>
+            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
           </div>
         </div>
       </div>
@@ -246,31 +250,22 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We present the first method capable of photorealistically reconstructing a non-rigidly
-              deforming scene using photos/videos captured casually from mobile phones.
+              We introduce PHYBench, a novel, high-quality benchmark designed for comprehensively evaluating the complex reasoning
+              capabilities of current large language models (LLMs).
             </p>
             <p>
-              Our approach augments neural radiance fields
-              (NeRF) by optimizing an
-              additional continuous volumetric deformation field that warps each observed point into a
-              canonical 5D NeRF.
-              We observe that these NeRF-like deformation fields are prone to local minima, and
-              propose a coarse-to-fine optimization method for coordinate-based models that allows for
-              more robust optimization.
-              By adapting principles from geometry processing and physical simulation to NeRF-like
-              models, we propose an elastic regularization of the deformation field that further
-              improves robustness.
+              PHYBench consists of 500 innovative and meticulously curated physics problems based on real-world physical scenarios,
+              highlighting the ability of models to understand and reason about realistic physical processes. The benchmark spans
+              mechanics, thermodynamics, optics, electromagnetism, modern physics, and advanced physics, with difficulty levels
+              ranging from high school to college physics competitions. Additionally, we propose the Expression Edit Distance (EED)
+              Score, a fine-grained evaluation metric based on the edit distance between mathematical expressions, which effectively
+              captures differences in model reasoning processes and outcomes beyond traditional binary scoring methods.
             </p>
             <p>
-              We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-              photos/videos into deformable NeRF
-              models that allow for photorealistic renderings of the subject from arbitrary
-              viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-              using a
-              rig with two mobile phones that take time-synchronized photos, yielding train/validation
-              images of the same pose at different viewpoints. We show that our method faithfully
-              reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-              fidelity.
+              Using PHYBench, we evaluate contemporary LLMs and compare their performance with human evaluations provided by physics
+              students from top universities. Our results clearly indicate that state-of-the-art reasoning models significantly
+              underperform compared to human experts, highlighting the substantial limitations and future opportunities for
+              improvement in complex reasoning scenarios. Our benchmark results and dataset are publicly available at xxx.
             </p>
           </div>
         </div>
@@ -282,8 +277,6 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Video</h2>
           <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0" frameborder="0"
-              allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -300,30 +293,24 @@
         <!-- Visual Effects. -->
         <div class="column">
           <div class="content">
-            <h2 class="title is-3">Visual Effects</h2>
+            <h2 class="title is-3">AAAAAAAA</h2>
             <p>
-              Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-              would be impossible without nerfies since it would require going through a wall.
+              AAAAAAAAAAA
             </p>
-            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/dollyzoom-stacked.mp4" type="video/mp4">
-            </video>
+            
           </div>
         </div>
         <!--/ Visual Effects. -->
 
         <!-- Matting. -->
         <div class="column">
-          <h2 class="title is-3">Matting</h2>
+          <h2 class="title is-3">AAAAA</h2>
           <div class="columns is-centered">
             <div class="column content">
               <p>
-                As a byproduct of our method, we can also solve the matting problem by ignoring
-                samples that fall outside of a bounding box during rendering.
+                AAAAAAAAAA
               </p>
-              <video id="matting-video" controls playsinline height="100%">
-                <source src="./static/videos/matting.mp4" type="video/mp4">
-              </video>
+              
             </div>
 
           </div>
@@ -334,51 +321,32 @@
       <!-- Animation. -->
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">Animation</h2>
+          <h2 class="title is-3">AA</h2>
 
           <!-- Interpolating. -->
-          <h3 class="title is-4">Interpolating states</h3>
+          <h3 class="title is-4">AAA</h3>
           <div class="content has-text-justified">
             <p>
-              We can also animate the scene by interpolating the deformation latent codes of two input
-              frames. Use the slider here to linearly interpolate between the left frame and the right
-              frame.
+              AAAAAAAAAAA
+              AAAAAAAAAAA
             </p>
           </div>
-          <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-              <img src="./static/images/interpolate_start.jpg" class="interpolation-image"
-                alt="Interpolate start reference image." />
-              <p>Start Frame</p>
-            </div>
-            <div class="column interpolation-video-column">
-              <div id="interpolation-image-wrapper">
-                Loading...
-              </div>
-              <input class="slider is-fullwidth is-large is-info" id="interpolation-slider" step="1" min="0" max="100"
-                value="0" type="range">
-            </div>
-            <div class="column is-3 has-text-centered">
-              <img src="./static/images/interpolate_end.jpg" class="interpolation-image"
-                alt="Interpolation end reference image." />
-              <p class="is-bold">End Frame</p>
-            </div>
-          </div>
+
           <br />
           <!--/ Interpolating. -->
 
           <!-- Re-rendering. -->
-          <h3 class="title is-4">Re-rendering the input video</h3>
+          <h3 class="title is-4">Re</h3>
           <div class="content has-text-justified">
             <p>
-              Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-              viewpoint such as a stabilized camera by playing back the training deformations.
+              AAAAAAAAAAA
+              AAAAAAAAAAA
+              AAAAAAAAAAA
+              AAAAAAAAAAA
             </p>
           </div>
           <div class="content has-text-centered">
-            <video id="replay-video" controls muted preload playsinline width="75%">
-              <source src="./static/videos/replay.mp4" type="video/mp4">
-            </video>
+
           </div>
           <!--/ Re-rendering. -->
 
@@ -394,7 +362,7 @@
 
           <div class="content has-text-justified">
             <p>
-              There's a lot of excellent work that was introduced around the same time as ours.
+              There are many concurrent works that are similar to ours. We will try to keep this list up to date.
             </p>
             <p>
               <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an
@@ -428,12 +396,7 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+      <pre><code>xxxxxxxxxxxx</code></pre>
     </div>
   </section>
 
@@ -441,10 +404,10 @@
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+        <a title="pdf" class="icon-link" href="xxxxxxxx">
           <i class="fas fa-file-pdf"></i>
         </a>
-        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <a title="github" class="icon-link" href="https://github.com/phybench-official" class="external-link" disabled>
           <i class="fab fa-github"></i>
         </a>
       </div>
