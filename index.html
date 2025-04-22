@@ -38,6 +38,18 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <!-- MathJax -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 </head>
 
 <body>
@@ -81,61 +93,68 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">PHYBench: Holistic Evaluation of Physical Perception and Reasoning in Large Language Models</h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://stephenqsstarthomas.github.io">Shi Qiu</a><sup>1</sup>,</span>
-              <span class="author-block">
-                Shaoyang Guo</a><sup>1</sup>,</span>
-              <span class="author-block">
-                Zhuo-Yang Song</a><sup>1</sup>,</span>
-              <span class="author-block">
-                Yunbo Sun</a><sup>1</sup>,</span>
-              <span class="author-block">
-                Zeyu Cai</a><sup>1</sup>,</span>
-              <span class="author-block">
-                Jiashen Wei<sup>1</sup>,</span>
-              <span class="author-block">
-                Tianyu Luo<sup>1</sup>,</span>
-              <span class="author-block">
-                Yixuan Yin<sup>1</sup>,</span>
-              <span class="author-block">
-                Haoxu Zhang<sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://aheadofpotato.github.io">Yi Hu</a><sup>2</sup>,</span>
-              <span class="author-block">
-                Chenyang Wang<sup>1</sup>,</span>
-              <span class="author-block">
-                Chencheng Tang<sup>1</sup>,</span>
-              <span class="author-block">
-                Haoling Chang<sup>1</sup>,</span>
-              <span class="author-block">
-                Qi Liu<sup>1</sup>,</span>
-              <span class="author-block">
-                Ziheng Zhou<sup>1</sup>,</span>
-              <span class="author-block">
-                Tianyu Zhang<sup>1</sup>,</span>
-              <span class="author-block">
-                Qihua Sun<sup>1</sup>,</span>
-              <span class="author-block">
-                Zhou Liang<sup>1</sup>,</span>
-              <span class="author-block">
-                Yuku Zhang<sup>1</sup>,</span>
-              <span class="author-block">
-                Zhangyi Liu<sup>1</sup>,</span>
-              <span class="author-block">
-                Weike Wang<sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://faculty.pku.edu.cn/caoqinghong/zh_CN/index.htm">Qing-Hong Cao</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://muhanzhang.github.io">Muhan Zhang</a><sup>2</sup>,</span>
-              <span class="author-block">
-                <a href="https://konformal.github.io">Hua Xing Zhu</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://stephenqsstarthomas.github.io">Shi Qiu</a><sup>1</sup>,</span>
+                <span class="author-block">Shaoyang Guo<sup>1</sup>,</span>
+                <span class="author-block">Zhuo-Yang Song<sup>1</sup>,</span>
+                <span class="author-block">Yunbo Sun<sup>1</sup>,</span>
+                <span class="author-block">Zeyu Cai<sup>1</sup>,</span>
+                <span class="author-block">Jiashen Wei<sup>1</sup>,</span>
+                <span class="author-block">Tianyu Luo<sup>1</sup>,</span>
+                <span class="author-block">Yixuan Yin<sup>1</sup>,</span>
+                <span class="author-block">Haoxu Zhang<sup>1</sup>,</span>
+                <span class="author-block"><a href="https://aheadofpotato.github.io">Yi Hu</a><sup>2</sup>,</span>
+                <span class="author-block">Chenyang Wang<sup>1</sup>,</span>
+                <span class="author-block">Chencheng Tang<sup>1</sup>,</span>
+                <span class="author-block">Haoling Chang<sup>1</sup>,</span>
+                <span class="author-block">Qi Liu<sup>1</sup>,</span>
+                <span class="author-block">Ziheng Zhou<sup>1</sup>,</span>
+                <span class="author-block">Tianyu Zhang<sup>1</sup>,</span>
+                <span class="author-block">Jingtian Zhang<sup>1</sup>,</span>
+                <span class="author-block">Zhangyi Liu<sup>1</sup>,</span>
+                <span class="author-block">Minghao Li<sup>1</sup>,</span>
+                <span class="author-block">Yuku Zhang<sup>1</sup>,</span>
+                <span class="author-block">Boxuan Jing<sup>1</sup>,</span>
+                <span class="author-block">Xianqi Yin<sup>1</sup>,</span>
+                <span class="author-block">Yutong Ren<sup>1</sup>,</span>
+                <span class="author-block">Zizhuo Fu<sup>2</sup>,</span>
+                <span class="author-block">Weike Wang<sup>1</sup>,</span>
+                <span class="author-block">Xudong Tian<sup>1</sup>,</span>
+                <span class="author-block">Anqi Lv<sup>1</sup>,</span>
+                <span class="author-block">Laifu Man<sup>1</sup>,</span>
+                <span class="author-block">Jianxiang Li<sup>1</sup>,</span>
+                <span class="author-block">Feiyu Tao<sup>1</sup>,</span>
+                <span class="author-block">Qihua Sun<sup>1</sup>,</span>
+                <span class="author-block">Zhou Liang<sup>1</sup>,</span>
+                <span class="author-block">Yushu Mu<sup>1</sup>,</span>
+                <span class="author-block">Zhongxuan Li<sup>1</sup>,</span>
+                <span class="author-block">Jing-Jun Zhang<sup>1</sup>,</span>
+                <span class="author-block">Shutao Zhang<sup>1</sup>,</span>
+                <span class="author-block">Xiaotian Li<sup>1</sup>,</span>
+                <span class="author-block">Xingqi Xia<sup>1</sup>,</span>
+                <span class="author-block">Jiawei Lin<sup>1</sup>,</span>
+                <span class="author-block">Zheyu Shen<sup>1</sup>,</span>
+                <span class="author-block">Jiahang Chen<sup>1</sup>,</span>
+                <span class="author-block">Qiuhao Xiong<sup>1</sup>,</span>
+                <span class="author-block">Binran Wang<sup>1</sup>,</span>
+                <span class="author-block">Fengyuan Wang<sup>1</sup>,</span>
+                <span class="author-block">Ziyang Ni<sup>1</sup>,</span>
+                <span class="author-block">Bohan Zhang<sup>5</sup>,</span>
+                <span class="author-block">Fan Cui<sup>4</sup>,</span>
+                <span class="author-block">Changkun Shao<sup>1</sup>,</span>
+                <span class="author-block"><a href="https://faculty.pku.edu.cn/caoqinghong/zh_CN/index.htm">Qing-Hong Cao</a><sup>1</sup>,</span>
+                <span class="author-block">Ming-xing Luo<sup>3</sup>,</span>
+                <span class="author-block"><a href="https://muhanzhang.github.io">Muhan Zhang</a><sup>2</sup>,</span>
+                <span class="author-block"><a href="https://konformal.github.io">Hua Xing Zhu</a><sup>1</sup>,</span>
               
             </div>
             
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>School of Physics, Peking University,</span>
+              <span class="author-block"><sup>1</sup>School of Physics, Peking University</span>
               <span class="author-block"><sup>2</sup>Institute for Artificial Intelligence, Peking University</span>
+              <span class="author-block"><sup>3</sup>Beijing Computational Science Research Center</span>
+              <span class="author-block"><sup>4</sup>School of Integrated Circuits, Peking University</span>
+              <span class="author-block"><sup>5</sup>School of Integrated Circuits, Peking University</span>
             </div>
 
             <div class="column has-text-centered">
@@ -198,6 +217,32 @@
     </div>
   </section>
 
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">🌟 Overview</h2>
+          <div class="content has-text-justified">
+            <p><strong>PHYBench</strong> is the first large-scale benchmark specifically designed to evaluate <strong>physical perception</strong> and <strong>robust reasoning</strong> capabilities in Large Language Models (LLMs).</p>
+            <p>With <strong>500 meticulously curated physics problems</strong> spanning mechanics, electromagnetism, thermodynamics, optics, modern physics, and advanced physics, it challenges models to demonstrate:</p>
+            <ul>
+              <li><strong>Real-world grounding</strong>: Problems based on tangible physical scenarios (e.g., ball inside a bowl, pendulum dynamics)</li>
+              <li><strong>Multi-step reasoning</strong>: Average solution length of 3,000 characters requiring 10+ intermediate steps</li>
+              <li><strong>Symbolic precision</strong>: Strict evaluation of LaTeX-formulated expressions through novel <strong>Expression Edit Distance (EED) Score</strong></li>
+            </ul>
+            <h3 class="title is-4">Key innovations:</h3>
+            <ul>
+              <li>🎯 <strong>EED Metric</strong>: Continuous scoring (0-100) measuring expression tree similarity, capturing partial correctness</li>
+              <li>🏋️ <strong>Difficulty Spectrum</strong>: high school, undergraduate, Physics Olympiad-level problems</li>
+              <li>🔍 <strong>Error Taxonomy</strong>: Explicit evaluation of Physical Perception (PP) vs Robust Reasoning (RR) failures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
   <section class="hero is-light is-small">
     <div class="hero-body">
@@ -232,36 +277,58 @@
     </div>
   </section>
 
-
   <section class="section">
     <div class="container is-max-desktop">
-      <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              We introduce PHYBench, a novel, high-quality benchmark designed for comprehensively evaluating the complex reasoning
-              capabilities of current large language models (LLMs).
-            </p>
-            <p>
-              PHYBench consists of 500 innovative and meticulously curated physics problems based on real-world physical scenarios,
-              highlighting the ability of models to understand and reason about realistic physical processes. The benchmark spans
-              mechanics, thermodynamics, optics, electromagnetism, modern physics, and advanced physics, with difficulty levels
-              ranging from high school to college physics competitions. Additionally, we propose the Expression Edit Distance (EED)
-              Score, a fine-grained evaluation metric based on the edit distance between mathematical expressions, which effectively
-              captures differences in model reasoning processes and outcomes beyond traditional binary scoring methods.
-            </p>
-            <p>
-              Using PHYBench, we evaluate contemporary LLMs and compare their performance with human evaluations provided by physics
-              students from top universities. Our results clearly indicate that state-of-the-art reasoning models significantly
-              underperform compared to human experts, highlighting the substantial limitations and future opportunities for
-              improvement in complex reasoning scenarios. Our benchmark results and dataset are publicly available at xxx.
-            </p>
+          <h2 class="title is-3">📚 Dataset Component</h2>
+          <div class="content has-text-centered">
+            <table class="table is-bordered is-striped is-fullwidth is-hoverable">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Subdomains</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mechanics</td>
+                  <td>Dynamics, Kinematics, Rotational</td>
+                </tr>
+                <tr>
+                  <td>Electromagnetism</td>
+                  <td>Fields, Circuits, Relativistic EM</td>
+                </tr>
+                <tr>
+                  <td>Thermodynamics</td>
+                  <td>Statistical Mechanics, Heat Engines</td>
+                </tr>
+                <tr>
+                  <td>Optics</td>
+                  <td>Wave, Geometric, Quantum Optics</td>
+                </tr>
+                <tr>
+                  <td>Modern Physics</td>
+                  <td>SR/GR, Quantum Mechanics</td>
+                </tr>
+                <tr>
+                  <td>Advanced Physics</td>
+                  <td>Plasma, Condensed Matter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <h3 class="title is-4 has-text-left">Answer Types</h3>
+          <div class="content has-text-left">
+            <ul>
+              <li> Strict symbolic expressions (e.g., <span>$\sqrt{\frac{2g}{3R}}$</span>)</li>
+              <li> Multiple equivalent forms accepted</li>
+              <li> No numerical approximations or equation chains</li>
+            </ul>
           </div>
         </div>
       </div>
-      <!--/ Abstract. -->
     </div>
   </section>
 
