@@ -63,13 +63,15 @@ Key innovations:
 
 ### 3-Stage Rigorous Validation Pipeline
 
-1. **Expert Creation & Initial Screening**  
-   - 178 PKU physics students contributed problems from:
-     - 80% non-public sources (internal competition materials/custom puzzles)
-     - 20% public textbooks/Olympiad archives
+1. **Expert Creation & Strict Screening**  
+   - 178 PKU physics students contributed problems that are:
+     - Almost entirely original/custom-created
+     - None easily found through direct internet searches or standard reference materials
    - Strict requirements:
      - Single unambiguous symbolic answer (e.g., `T=2mg+4mv₀²/l`)
      - Text-only solvability (no diagrams/multimodal inputs)
+     - Rigorously precise statements to avoid ambiguity
+     - Solvable using only basic physics principles (no complex specialized knowledge required)
 
 2. **Multi-Round Academic Review**  
    - Dedicated internal platform for peer review:
