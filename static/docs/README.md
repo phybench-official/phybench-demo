@@ -37,8 +37,8 @@ PHYBench is the first large-scale benchmark specifically designed to evaluate **
 - **Symbolic precision**: Strict evaluation of LaTeX-formulated expressions through novel **Expression Edit Distance (EED) Score**
 
 Key innovations:
-- 🎯 **EED Metric**: Continuous scoring (0-100) measuring expression tree similarity, capturing partial correctness
-- 🏋️ **Difficulty Spectrum**: high school, undergraduate, Physics Olympiad-level problems
+- 🎯 **EED Metric**: Continuous scoring (0-100) measurement based on the edit-distance on expression tree
+- 🏋️ **Difficulty Spectrum**: high school, undergraduate, Olympiad-level physics problems
 - 🔍 **Error Taxonomy**: Explicit evaluation of Physical Perception (PP) vs Robust Reasoning (RR) failures
 
 ## 🔧 Data Details
@@ -72,16 +72,15 @@ Key innovations:
      - Text-only solvability (no diagrams/multimodal inputs)
      - Rigorously precise statements to avoid ambiguity
      - Solvable using only basic physics principles (no complex specialized knowledge required)
+   - No requirements on AI test to avoid filtering for AI weaknesses
 
 2. **Multi-Round Academic Review**  
    - Dedicated internal platform for peer review:
      ![Review Interface](https://example.com/review-platform.png)
    - 3-tier verification process:
-     | Stage | Checkpoints | 
-      | --- | --- | 
-      | 1 | Answer validity & uniqueness | 
-      | 2 | LLM-ambiguous phrasing elimination | 
-      | 3 | SymPy computability verification | 
+     - Initial filtering: Reviewers assessed format validity and appropriateness (not filtering for AI weaknesses)
+     - Ambiguity detection and revision: Reviewers analyzed LLM-generated solutions to identify potential ambiguities in problem statements
+     - Iterative improvement cycle: Questions refined repeatedly until all LLMs can understand the question and follow the instructions to produce the expressions it believes to be right.
 
 3. **Human Expert Finalization**
   - **81 PKU students participated:**
@@ -132,7 +131,7 @@ This scoring mechanism provides a continuous measure of similarity, allowing for
   - **61.9±2.1% average accuracy**
   - **70.4±1.8 average EED Score**
   - Top quartile reached 71.4% accuracy and 80.4 EED Score
-  - Significant outperformance vs LLMs: Human experts outperformed all evaluated language models at 99% confidence level
+  - Significant outperformance vs LLMs: Human experts outperformed all evaluated LLMs at 99% confidence level
   - Human experts significantly outperformed all evaluated LLMs (99.99% confidence level)
 
 
