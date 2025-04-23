@@ -79,14 +79,18 @@ Key innovations:
    - 3-tier verification process:
      | Stage | Checkpoints | 
       | --- | --- | 
-      | 1 | Physics validity, Answer uniqueness | 
+      | 1 | Answer validity & uniqueness | 
       | 2 | LLM-ambiguous phrasing elimination | 
       | 3 | SymPy computability verification | 
 
-### 3. **Human Expert Finalization**  
-- **109 PKU students completed:**  
-  - **8-problem validation sets (20% overlap for consistency)**  
-    A total of 109 students from Peking University participated in the final validation phase. Each student was assigned a set of 8 problems designed to evaluate the clarity, accuracy, and comprehensiveness of the questions. To ensure consistency and reliability in the evaluation process, 20% of the problems in each set overlapped with those in other sets. This overlap allowed the researchers to compare and verify the consistency of the feedback provided by different students, thereby ensuring the high quality and reliability of the final benchmark.
+3. **Human Expert Finalization**
+  - **81 PKU students participated:**
+  - Each student independently solved 8 problems from the dataset
+  - Evaluate question clarity, statement rigor, and answer correctness
+  - Establish of human baseline performance meanwhile
+
+
+
 
 ## 📊 Evaluation Protocol
 
@@ -115,16 +119,22 @@ The EED Score evaluates the similarity between the model-generated answer and th
 This scoring mechanism provides a continuous measure of similarity, allowing for a nuanced evaluation of the model's reasoning capabilities beyond binary correctness.
 
 **Key Advantages**:  
-- 116% higher sample efficiency vs binary metrics  
-- Distinguishes coefficient errors (EED=50-90) vs structural errors (EED<30)
+- 204% higher sample efficiency vs binary metrics  
+- Distinguishes coefficient errors (EED=30-60) vs structural errors (EED<30)
 
 ### Human Baseline
 
-- **Participants**: 70 PKU physics students  
+- **Participants**: 81 PKU physics students  
 - **Protocol**:  
-  - **20% overlap problems for consistency checking**: To ensure the reliability of the human evaluation, 20% of the problems in the validation sets were overlapping. This allowed the researchers to check the consistency of the students' answers across different sets.  
-  - **Time-constrained solving (15min/problem average)**: Students were given an average of 15 minutes per problem to solve, simulating a realistic test environment.  
-  - **Achieved 70%  accuracy vs SOTA models' 34.8% (Gemini-2.5-Pro)**: The human participants achieved an average accuracy of 70%, with a margin of error of ±5%. This is significantly higher than the state-of-the-art models, with the highest-performing model (Gemini-2.5-Pro) achieving only 34.8% accuracy.
+  - **8 problems per student**: Each student solved a set of 8 problems from PHYBench dataset  
+  - **Time-constrained solving**: 3 hours.
+- **Performance metrics**:
+  - **61.9±2.1% average accuracy**
+  - **70.4±1.8 average EED Score**
+  - Top quartile reached 71.4% accuracy and 80.4 EED Score
+  - Significant outperformance vs LLMs: Human experts outperformed all evaluated language models at 99% confidence level
+  - Human experts significantly outperformed all evaluated LLMs (99.99% confidence level)
+
 
 ## 🚩 Citation
 ```bibtex
