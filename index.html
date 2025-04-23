@@ -228,7 +228,7 @@
             <ul>
               <li><strong>Real-world grounding</strong>: Problems based on tangible physical scenarios (e.g., ball inside a bowl, pendulum dynamics)</li>
               <li><strong>Multi-step reasoning</strong>: Average solution length of 3,000 characters requiring 10+ intermediate steps</li>
-              <li><strong>Symbolic precision</strong>: Strict evaluation of LaTeX-formulated expressions through novel <strong>Expression Edit Distance (EED) Score</strong></li>
+              <li><strong>Symbolic precision</strong>: Strict evaluation of LaTeX-formatted expressions through novel <strong>Expression Edit Distance (EED) Score</strong></li>
             </ul>
             <h3 class="title is-4">Key innovations:</h3>
             <ul>
@@ -243,38 +243,7 @@
   </section>
   
 
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-steve">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-chair-tp">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-shiba">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-fullbody">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-blueshirt">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-mask">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-coffee">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-          <div class="item item-toby">
-            <img src="./static/images/test.jpg" class="teaser-image" alt="Teaser image">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -345,70 +314,116 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">🛠 Data Curation</h2>
+          <h2 class="title is-3">🛠️ Data Curation</h2>
           <div class="content has-text-justified">
-            <h3 class="title is-4">🔍 3-Stage Rigorous Validation Pipeline</h3>
-  
-            <h4>1. Expert Creation & Initial Screening</h4>
+            <h3 class="title is-4">3-Stage Rigorous Validation Pipeline</h3>
+
+            <h4>1. Expert Creation & Strict Screening</h4>
             <ul>
-              <li><strong>178 PKU Physics students</strong> contributed problems from:
+              <li><strong>178 PKU physics students</strong> contributed problems that are:
                 <ul>
-                  <li>📘 <strong>80%</strong> non-public sources (internal competitions, custom puzzles)</li>
-                  <li>🌐 <strong>20%</strong> public textbooks and Olympiad archives</li>
+                  <li>Almost entirely original/custom-created</li>
+                  <li>None easily found through direct internet searches or standard reference materials</li>
                 </ul>
               </li>
               <li>Strict requirements:
                 <ul>
-                  <li>✅ <strong>Single unambiguous symbolic answer</strong> (e.g., <span>$T = 2mg + 4mv₀² / l$</span>)</li>
-                  <li>✉️ <strong>Text-only solvability</strong> — no diagrams or multimodal inputs</li>
+                  <li>✅ Single unambiguous symbolic answer (e.g., <span>`T=2mg+4mv₀²/l`</span>)</li>
+                  <li>✉️ Text-only solvability (no diagrams/multimodal inputs)</li>
+                  <li>Rigorously precise statements to avoid ambiguity</li>
+                  <li>Solvable using only basic physics principles (no complex specialized knowledge required)</li>
                 </ul>
               </li>
+              <li>No requirements on AI test to avoid filtering for AI weaknesses</li>
             </ul>
-  
+
             <h4>2. Multi-Round Academic Review</h4>
-            <p>Conducted on a <strong>dedicated internal review platform</strong></p>
-  
-            <p><strong>Three-tier review process:</strong></p>
-            <table class="table is-bordered is-striped is-fullwidth">
-              <thead>
-                <tr>
-                  <th>Stage</th>
-                  <th>Checkpoints</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1️⃣</td>
-                  <td>Physics validity, answer uniqueness</td>
-                </tr>
-                <tr>
-                  <td>2️⃣</td>
-                  <td>Elimination of LLM-ambiguous phrasing</td>
-                </tr>
-                <tr>
-                  <td>3️⃣</td>
-                  <td>Symbolic computability via <strong>SymPy</strong></td>
-                </tr>
-              </tbody>
-            </table>
-  
+            <p>Dedicated internal platform for peer review:</p>
+            <img src="https://example.com/review-platform.png" alt="Review Interface">
+            <p><strong>3-tier verification process:</strong></p>
+            <ul>
+              <li>Initial filtering: Reviewers assessed format validity and appropriateness (not filtering for AI weaknesses)</li>
+              <li>Ambiguity detection and revision: Reviewers analyzed LLM-generated solutions to identify potential ambiguities in problem statements</li>
+              <li>Iterative improvement cycle: Questions refined repeatedly until all LLMs can understand the question and follow the instructions to produce the expressions it believes to be right.</li>
+            </ul>
+
             <h4>3. Human Expert Finalization</h4>
             <ul>
-              <li><strong>70 PKU students</strong> participated in final-phase validation</li>
-              <li>Each student completed an <strong>8-problem evaluation set</strong>, with <strong>20% overlap</strong> for inter-reviewer consistency</li>
-              <li>Goals:
+              <li><strong>81 PKU students participated:</strong></li>
+              <li>Each student independently solved 8 problems from the dataset</li>
+              <li>Evaluate question clarity, statement rigor, and answer correctness</li>
+              <li>Establish of human baseline performance meanwhile</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">📊 Evaluation Protocol</h2>
+          <div class="content has-text-justified">
+            <h3 class="title is-4">Machine Evaluation</h3>
+            <p><strong>Dual Metrics</strong>:</p>
+            <ol>
+              <li><strong>Accuracy</strong>: Binary correctness (expression equivalence via SymPy simplification)</li>
+              <li><strong>EED Score</strong>: Continuous assessment of expression tree similarity</li>
+            </ol>
+            <p>The EED Score evaluates the similarity between the model-generated answer and the ground truth by leveraging the concept of expression tree edit distance. The process involves the following steps:</p>
+            <ol>
+              <li><strong>Simplification of Expressions</strong>: Both the ground truth (`gt`) and the model-generated answer (`gen`) are first converted into simplified symbolic expressions using the `sympy.simplify()` function. This step ensures that equivalent forms of the same expression are recognized as identical.</li>
+              <li><strong>Equivalence Check</strong>: If the simplified expressions of `gt` and `gen` are identical, the EED Score is assigned a perfect score of 100, indicating complete correctness.</li>
+              <li><strong>Tree Conversion and Edit Distance Calculation</strong>: If the expressions are not identical, they are converted into tree structures. The edit distance between these trees is then calculated using an extended version of the Zhang-Shasha algorithm. This distance represents the minimum number of node-level operations (insertions, deletions, and updates) required to transform one tree into the other.</li>
+              <li><strong>Relative Edit Distance and Scoring</strong>: The relative edit distance \( r \) is computed as the ratio of the edit distance to the size of the ground truth tree. The EED Score is then determined based on this relative distance:
                 <ul>
-                  <li>✅ <strong>Clarity</strong> of problem statement</li>
-                  <li>✅ <strong>Accuracy</strong> of solution</li>
-                  <li>✅ <strong>Consistency</strong> in cross-review feedback</li>
+                  <li>If \( r = 0 \) (i.e., the expressions are identical), the score is 100.</li>
+                  <li>If \( 0 < r < 0.6 \), the score is calculated as \( 60 - 100r \).</li>
+                  <li>If \( r \geq 0.6 \), the score is 0, indicating a significant discrepancy between the model-generated answer and the ground truth.</li>
+                </ul>
+              </li>
+            </ol>
+            <p><strong>Key Advantages</strong>:</p>
+            <ul>
+              <li>204% higher sample efficiency vs binary metrics</li>
+              <li>Distinguishes coefficient errors (EED=30-60) vs structural errors (EED<30)</li>
+            </ul>
+
+            <h3 class="title is-4">Human Baseline</h3>
+            <ul>
+              <li><strong>Participants</strong>: 81 PKU physics students</li>
+              <li><strong>Protocol</strong>:
+                <ul>
+                  <li>8 problems per student: Each student solved a set of 8 problems from PHYBench dataset</li>
+                  <li>Time-constrained solving: 3 hours.</li>
+                </ul>
+              </li>
+              <li><strong>Performance metrics</strong>:
+                <ul>
+                  <li>61.9±2.1% average accuracy</li>
+                  <li>70.4±1.8 average EED Score</li>
+                  <li>Top quartile reached 71.4% accuracy and 80.4 EED Score</li>
+                  <li>Significant outperformance vs LLMs: Human experts outperformed all evaluated LLMs at 99% confidence level</li>
                 </ul>
               </li>
             </ul>
-  
-            <div class="notification is-info is-light">
-              💡 The overlap mechanism allowed comparison of responses across students, ensuring <strong>high reliability</strong> and <strong>robustness</strong> of the final dataset.
-            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">🚩 Citation</h2>
+          <pre><code class="bibtex">
+@article{
+}
+        </code></pre>
         </div>
       </div>
     </div>
