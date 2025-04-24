@@ -249,44 +249,80 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">📚 Dataset Component</h2>
-          <div class="content has-text-centered">
-            <table class="table is-bordered is-striped is-fullwidth is-hoverable">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Subdomains</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Mechanics</td>
-                  <td>Dynamics, Kinematics, Rotational</td>
-                </tr>
-                <tr>
-                  <td>Electromagnetism</td>
-                  <td>Fields, Circuits, Relativistic EM</td>
-                </tr>
-                <tr>
-                  <td>Thermodynamics</td>
-                  <td>Statistical Mechanics, Heat Engines</td>
-                </tr>
-                <tr>
-                  <td>Optics</td>
-                  <td>Wave, Geometric, Quantum Optics</td>
-                </tr>
-                <tr>
-                  <td>Modern Physics</td>
-                  <td>SR/GR, Quantum Mechanics</td>
-                </tr>
-                <tr>
-                  <td>Advanced Physics</td>
-                  <td>Plasma, Condensed Matter</td>
-                </tr>
-              </tbody>
-            </table>
+          <h2 class="title is-3">📚 Example Problems</h2>
+          <div id="problem-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
+            <div class="carousel-item is-active">
+              <img src="./static/images/problem1.jpg" alt="Problem 1">
+            </div>
+            <div class="carousel-item">
+              <img src="./static/images/problem2.jpg" alt="Problem 2">
+            </div>
+            <div class="carousel-item">
+              <img src="./static/images/problem3.jpg" alt="Problem 3">
+            </div>
+            <div class="carousel-item">
+              <img src="./static/images/problem4.jpg" alt="Problem 4">
+            </div>
+            <div class="carousel-item">
+              <img src="./static/images/problem5.jpg" alt="Problem 5">
+            </div>
           </div>
-  
+          
+          <!-- TODO: clicking "prev" button twice on prob 2 will cause a bug where the carousel will stick at prob 1 -->
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const carousel = bulmaCarousel.attach('#problem-carousel', {
+                slidesToScroll: 1,
+                slidesToShow: 1,
+                navigation: true,
+                pagination: false,
+                loop: false,
+                autoplay: false,
+                duration: 500,
+                timing: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+              })[0];
+            
+              const navLeft  = carousel.element.querySelector('.carousel-nav-left');
+              const navRight = carousel.element.querySelector('.carousel-nav-right');
+            
+              const lock   = () => { navLeft.style.pointerEvents = navRight.style.pointerEvents = 'none'; };
+              const unlock = () => { navLeft.style.pointerEvents = navRight.style.pointerEvents = 'auto'; };
+            
+              unlock();                            // 初始可点击
+              carousel.on('before:show', lock);    // 动画开始时锁定
+              carousel.on('after:show', unlock);   // 动画结束时解锁
+            });
+            </script>
+            
+            
+          <style>
+            #problem-carousel{
+              position:relative;
+              overflow:hidden;
+            }
+            #problem-carousel::before,
+            #problem-carousel::after{
+              content:"";
+              position:absolute;
+              top:0;
+              width:30px;
+              height:100%;
+              pointer-events:none;
+              z-index:2;
+            }
+            #problem-carousel::before{
+              left: 0px;
+              background:linear-gradient(to right,#fff 0%,rgba(255,255,255,0) 100%);
+            }
+            #problem-carousel::after{
+              right: 0px;
+              background:linear-gradient(to left,#fff 0%,rgba(255,255,255,0) 100%);
+            }
+            #problem-carousel .carousel-item{
+              padding:0 1.5rem;
+            }
+          </style>
+
           <h3 class="title is-4 has-text-left">Answer Types</h3>
           <div class="content has-text-left">
             <ul>

@@ -41,7 +41,7 @@ Key innovations:
 - 🏋️ **Difficulty Spectrum**: High school, undergraduate, Olympiad-level physics problems
 - 🔍 **Error Taxonomy**: Explicit evaluation of Physical Perception (PP) vs Robust Reasoning (RR) failures
 
-![Example Problem](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig1.png)
+![Example Problems](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig1.png)
 
 ## 🔧 Example Problems
 
