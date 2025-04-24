@@ -41,7 +41,7 @@ Key innovations:
 - 🏋️ **Difficulty Spectrum**: high school, undergraduate, Olympiad-level physics problems
 - 🔍 **Error Taxonomy**: Explicit evaluation of Physical Perception (PP) vs Robust Reasoning (RR) failures
 
-![Example Problem](static/docs/figures/fig1.png)
+![Example Problem](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig1.png)
 
 ## 🔧 Data Details
 
@@ -63,7 +63,7 @@ Key innovations:
 
 ## 🛠️ Data Curation
 
-![Data Curation Process](static/docs/figures/fig2.png)
+![Data Curation Process](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig2.png)
 
 ### 3-Stage Rigorous Validation Pipeline
 
@@ -136,29 +136,29 @@ This scoring mechanism provides a continuous measure of similarity, allowing for
 ## 📝 Main Results
 
 The results of the evaluation are shown in the following figure:
-![Evaluation Results](static/docs/figures/fig3.png)
+![Evaluation Results](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig3.png)
 
 1. **Significant Performance Gap**: Even state-of-the-art LLMs significantly lag behind human experts in physical reasoning. The highest-performing model, Gemini 2.5 Pro, achieved only a 36.9% accuracy, compared to the human baseline of 61.9%.
 2. **EED Score Advantages**: The EED Score provides a more nuanced evaluation of model performance compared to traditional binary scoring methods.
 3. **Domain-Specific Strengths**: Different models exhibit varying strengths in different domains of physics:
-   ![Domain Performance](static/docs/figures/fig4-a.png)
+   ![Domain Performance](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig4-a.png)
 
    * Gemini 2.5 Pro shows strong performance across most domains
    * DeepSeek-R1 and o3-mini (high) shows comparable performance in mechanics and electricity
    * Most models struggle with advanced physics and modern physics
 4. **Difficulty Handling**: When comparing the advantage across problem difficulties, Gemini 2.5 Pro shows a remarkable ability to handle increasingly difficult problems, while other models show declining advantages as difficulty increases.
-   ![Difficulty Performance](static/docs/figures/fig4-b.png)
+   ![Difficulty Performance](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig4-b.png)
 
 ## 😵‍💫 Error Analysis
 
-![Error Analysis](static/docs/figures/fig5.png)
+![Error Analysis](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig5.png)
 
 We categorize the capabilities assessed by the PHYBench benchmark into two key dimensions: Physical Perception (PP) and Robust Reasoning (RR):
 
 1. **Physical Perception (PP) Errors**: During this phase, models engage in intensive semantic reasoning, expending significant cognitive effort to identify relevant physical objects, variables, and dynamics. Models make qualitative judgments about which physical effects are significant and which can be safely ignored. PP manifests as critical decision nodes in the reasoning chain. An example of a PP error is shown in Example Problem 1.
 2. **Robust Reasoning (RR) Errors**: In this phase, models produce numerous lines of equations and perform symbolic reasoning. This process forms the connecting chains between perception nodes. RR involves consistent mathematical derivation, equation solving, and proper application of established conditions. An example of a RR error is shown in Example Problem 2.
 
-![Error Example](static/docs/figures/box1-example_reasoning_process.png)
+![Error Example](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/box1-example_reasoning_process.png)
 
 ## 🚩 Citation
 
