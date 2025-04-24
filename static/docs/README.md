@@ -38,7 +38,7 @@ PHYBench is the first large-scale benchmark specifically designed to evaluate **
 Key innovations:
 
 - 🎯 **EED Metric**: Smoother measurement based on the edit-distance on expression tree
-- 🏋️ **Difficulty Spectrum**: high school, undergraduate, Olympiad-level physics problems
+- 🏋️ **Difficulty Spectrum**: High school, undergraduate, Olympiad-level physics problems
 - 🔍 **Error Taxonomy**: Explicit evaluation of Physical Perception (PP) vs Robust Reasoning (RR) failures
 
 ![Example Problem](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig1.png)
@@ -118,14 +118,14 @@ This scoring mechanism provides a continuous measure of similarity, allowing for
 **Key Advantages**:
 
 - 204% higher sample efficiency vs binary metrics
-- Distinguishes coefficient errors (EED=30-60) vs structural errors (EED<30)
+- Distinguishes coefficient errors (30<EED score<60) vs structural errors (EED score<30)
 
 ### Human Baseline
 
 - **Participants**: 81 PKU physics students
 - **Protocol**:
   - **8 problems per student**: Each student solved a set of 8 problems from PHYBench dataset
-  - **Time-constrained solving**: 3 hours.
+  - **Time-constrained solving**: 3 hours
 - **Performance metrics**:
   - **61.9±2.1% average accuracy**
   - **70.4±1.8 average EED Score**
