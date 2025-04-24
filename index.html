@@ -455,15 +455,81 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">🚩 Citation</h2>
-          <pre><code class="bibtex">
-@article{
-}
-        </code></pre>
+          <h2 class="title is-3">📝 Main Results</h2>
+          <div class="content has-text-justified">
+            <p>The results of the evaluation are shown in the following figure:</p>
+            <img src="./static/docs/figures/fig3.png" alt="Evaluation Results" style="max-width:100%;margin-bottom:1.5rem;">
+            <ol>
+              <li><strong>Significant Performance Gap</strong>: Even state-of-the-art LLMs significantly lag behind human experts in physical reasoning. The highest-performing model, Gemini 2.5 Pro, achieved only a 36.9% accuracy, compared to the human baseline of 61.9%.</li>
+              <li><strong>EED Score Advantages</strong>: The EED Score provides a more nuanced evaluation of model performance compared to traditional binary scoring methods.</li>
+              <li><strong>Domain-Specific Strengths</strong>: Different models exhibit varying strengths in different domains of physics:</li>
+            </ol>
+            <img src="./static/docs/figures/fig4-a.png" alt="Domain Performance" style="max-width:100%;margin-bottom:1.5rem;">
+            <ul>
+              <li>Gemini 2.5 Pro shows strong performance across most domains</li>
+              <li>DeepSeek-R1 and o3-mini (high) show comparable performance in mechanics and electricity</li>
+              <li>Most models struggle with advanced physics and modern physics</li>
+            </ul>
+            <p><strong>Difficulty Handling</strong>: Comparing the advantage across problem difficulties, Gemini 2.5 Pro gains a pronounced edge on harder problems, followed by o3 (high).</p>
+            <img src="./static/docs/figures/fig4-b.png" alt="Difficulty Performance" style="max-width:100%;margin-bottom:1.5rem;">
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">😵‍💫 Error Analysis</h2>
+          <div class="content has-text-justified">
+            <img src="./static/docs/figures/fig5.png" alt="Error Analysis" style="max-width:100%;margin-bottom:1.5rem;">
+            <p>We categorize the capabilities assessed by the PHYBench benchmark into two key dimensions: <strong>Physical Perception (PP)</strong> and <strong>Robust Reasoning (RR)</strong>:</p>
+            <ol>
+              <li><strong>Physical Perception (PP) Errors</strong>: During this phase, models engage in intensive semantic reasoning, expending significant cognitive effort to identify relevant physical objects, variables, and dynamics. Models make qualitative judgments about which physical effects are significant and which can be safely ignored. PP manifests as critical decision nodes in the reasoning chain. An example of a PP error is shown in Example Problem 1.</li>
+              <li><strong>Robust Reasoning (RR) Errors</strong>: In this phase, models produce numerous lines of equations and perform symbolic reasoning. This process forms the connecting chains between perception nodes. RR involves consistent mathematical derivation, equation solving, and proper application of established conditions. An example of a RR error is shown in Example Problem 2.</li>
+            </ol>
+            <img src="./static/docs/figures/box1-example_reasoning_process.png" alt="Error Example" style="max-width:100%;margin-bottom:1.5rem;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Citation section (Bulma) -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">🚩 Citation</h2>
+
+        <!-- ① 自带背景与内边距；② 横向滚动避免溢出 -->
+        <pre class="has-background-light p-4" style="overflow-x:auto;">
+<code class="language-bibtex">@misc{qiu2025phybenchholisticevaluationphysical,
+  title        = {PHYBench: Holistic Evaluation of Physical Perception and Reasoning in Large Language Models},
+  author       = {Shi Qiu and Shaoyang Guo and Zhuo-Yang Song and Yunbo Sun and Zeyu Cai and Jiashen Wei and Tianyu Luo and Yixuan Yin and Haoxu Zhang and Yi Hu and Chenyang Wang and Chencheng Tang and Haoling Chang and Qi Liu and Ziheng Zhou and Tianyu Zhang and Jingtian Zhang and Zhangyi Liu and Minghao Li and Yuku Zhang and Boxuan Jing and Xianqi Yin and Yutong Ren and Zizhuo Fu and Weike Wang and Xudong Tian and Anqi Lv and Laifu Man and Jianxiang Li and Feiyu Tao and Qihua Sun and Zhou Liang and Yushu Mu and Zhongxuan Li and Jing-Jun Zhang and Shutao Zhang and Xiaotian Li and Xingqi Xia and Jiawei Lin and Zheyu Shen and Jiahang Chen and Qiuhao Xiong and Binran Wang and Fengyuan Wang and Ziyang Ni and Bohan Zhang and Fan Cui and Changkun Shao and Qing-Hong Cao and Ming-xing Luo and Muhan Zhang and Hua Xing Zhu},
+  year         = {2025},
+  eprint       = {2504.16074},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  url          = {https://arxiv.org/abs/2504.16074}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 额外的小样式，可放到全局 CSS -->
+<style>
+  /* 等宽字体 + 更紧凑字号，易读且不撑版 */
+  pre code.language-bibtex {
+    font-family: "Fira Code", monospace;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+</style>
+
   
   
 

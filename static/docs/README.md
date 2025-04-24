@@ -137,7 +137,7 @@ The results of the evaluation are shown in the following figure:
    * Gemini 2.5 Pro shows strong performance across most domains
    * DeepSeek-R1 and o3-mini (high) shows comparable performance in mechanics and electricity
    * Most models struggle with advanced physics and modern physics
-4. **Difficulty Handling**: When comparing the advantage across problem difficulties, Gemini 2.5 Pro shows a remarkable ability to handle increasingly difficult problems, while other models show declining advantages as difficulty increases.
+4. **Difficulty Handling**: Comparing the advantage across problem difficulties, Gemini 2.5 Pro gains a pronounced edge on harder problems, followed by o3 (high).
    ![Difficulty Performance](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig4-b.png)
 
 ## 😵‍💫 Error Analysis
