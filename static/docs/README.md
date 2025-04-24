@@ -43,18 +43,9 @@ Key innovations:
 
 ![Example Problem](https://raw.githubusercontent.com/phybench-official/phybench-demo/refs/heads/main/static/docs/figures/fig1.png)
 
-## 🔧 Data Details
+## 🔧 Example Problems
 
-### Dataset Component
-
-| Category         | Subdomains                          |
-| ---------------- | ----------------------------------- |
-| Mechanics        | Dynamics, Kinematics, Rotational    |
-| Electromagnetism | Fields, Circuits, Relativistic EM   |
-| Thermodynamics   | Statistical Mechanics, Heat Engines |
-| Optics           | Wave, Geometric, Quantum Optics     |
-| Modern Physics   | SR/GR, Quantum Mechanics            |
-| Advanced Physics | Plasma, Condensed Matter            |
+**Put some problem cards here**
 
 **Answer Types**:
 🔹 Strict symbolic expressions (e.g., `\sqrt{\frac{2g}{3R}}`)
