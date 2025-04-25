@@ -1,5 +1,5 @@
 ---
-tags: [科研]
+tags: [EED]
 title: EED Scoring
 created: '2025-04-25T13:38:52.246Z'
 modified: '2025-04-25T14:18:31.370Z'
