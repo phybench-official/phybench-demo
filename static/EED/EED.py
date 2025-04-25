@@ -14,8 +14,7 @@ and install:
 sympy
 numpy
 latex2sympy2_extended
-zss
-
+timeout_decorator
 """
 
 """
