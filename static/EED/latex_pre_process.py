@@ -7,11 +7,11 @@ from sympy import simplify
 
 def brackets_balanced(s: str) -> bool:
     """
-    Check if the brackets in a latex matches
+    Check if the brackets in a LaTeX string are balanced
     Args:
         s(str): the input string
     Return:
-        if_balanced(Bool): if matches
+        bool: True if the brackets are balanced, False otherwise
     """
     stack = []
     bracket_pairs = {')': '(', ']': '[', '}': '{'}  
@@ -102,6 +102,34 @@ def extract_command(s: str, brace_pos: int) -> str | None:
 
 
 def remove_command(s,command,keep_inside=False):
+    def remove_command(s, command, keep_inside=False):
+        """
+        Removes all occurrences of a specified LaTeX-style command from a string.
+
+        This function searches for a given command in the input string `s` and removes it, 
+        along with its associated content enclosed in curly braces `{}`. If `keep_inside` 
+        is set to `True`, the content inside the braces is preserved, and only the command 
+        itself is removed. The function handles nested braces correctly.
+
+        Args:
+            s (str): The input string from which the command should be removed.
+            command (str): The LaTeX-style command to be removed (e.g., "\\textbf").
+            keep_inside (bool, optional): If `True`, preserves the content inside the braces 
+                while removing the command. Defaults to `False`.
+
+        Returns:
+            str: The modified string with the specified command removed.
+
+        Examples:
+            >>> remove_command("This is \\textbf{bold text}.", "\\textbf")
+            'This is bold text.'
+            
+            >>> remove_command("This is \\textbf{bold text}.", "\\textbf", keep_inside=True)
+            'This is bold text.'
+            
+            >>> remove_command("Nested \\textbf{bold \\textit{italic text}} example.", "\\textbf")
+            'Nested bold \\textit{italic text} example.'
+        """
     pos=s.find(command)
     if pos<0:
         return s
@@ -109,7 +137,7 @@ def remove_command(s,command,keep_inside=False):
     level=0
     escaped=False
     #print(end_index,s[end_index])
-    if s[end_index]=="{":
+    if end_index < len(s) and s[end_index] == "{":
         while end_index<len(s):
 
             if s[end_index]=='{':
@@ -125,8 +153,11 @@ def remove_command(s,command,keep_inside=False):
         s1="".join([s[0:pos],s[pos+len(command)+1:end_index],s[end_index+1:]])
     else:
         s1="".join([s[0:pos],s[end_index+1:]])
-    #print(s1)
-    return remove_command(s1,command,keep_inside)
+
+    if command not in s1:
+        return s1
+    else:
+        return remove_command(s1,command,keep_inside)
     
 import re
 
@@ -254,11 +285,24 @@ def vec_lower_idx(input_str):
     return re.sub(pattern, replacement, input_str)
 def convert_vec_syntax(text):
     """
-    Convert vec to a standard form
-    \vec xxx → \vec{xxx}
-    \vec α → \vec{α}
-    \vec\Gamma → \vec{\Gamma}
+    Converts LaTeX vector syntax to a standardized form.
+
+    This function processes a given text string and ensures that LaTeX vector 
+    notations are consistently formatted. Specifically, it transforms instances 
+    of `\vec xxx` into `\vec{xxx}`. The function handles cases where the vector 
+    notation is applied to single characters, Greek letters, or LaTeX commands.
+
+    Args:
+        text (str): The input string containing LaTeX code to be processed.
+
+    Returns:
+        str: The processed string with standardized vector syntax.
+
+    Examples:
+        >>> convert_vec_syntax(r"\vec x + \vec\alpha + \vec\Gamma")
+        '\\vec{x} + \\vec{\\alpha} + \\vec{\\Gamma}'
     """
+    
     pattern = r'\\vec(\s*)(\\?[a-zA-Zα-ωΑ-Ω]+)'
     replacement = r'\\vec{\2}'
     return re.sub(pattern, replacement, text)
@@ -275,21 +319,48 @@ def remove_outer_braces(tex_str):
 
 def extract_last_equal_content(s: str, strip_whitespace: bool = True) -> str:
     """
-    Extract content after last equal or sth else.
-    
-    :param strip_whitespace: （default True）
+    Extract the content after the last occurrence of specific mathematical comparison or assignment operators.
+
+    :param strip_whitespace: If True, removes leading and trailing whitespace from the extracted content. Defaults to True.
+    (e.g., '=', '\\approx', '\\ge', '\\le', etc.) within the input string `s`. It then extracts 
+    and returns the content that follows the operator. If no operator is found, the entire string 
+    is returned. Optionally, leading and trailing whitespace can be stripped from the extracted content.
+
+    Args:
+        s (str): The input string to process.
+        strip_whitespace (bool): Whether to strip leading and trailing whitespace from the extracted content. Defaults to True.
+
+    Returns:
+        str: The content after the last matching operator, or the entire string if no operator is found.
     """
-    final_sign=('=','\\approx','\\ge','\\le','\\geq','\\leq','<','>')
+    comparison_operators=('=','\\approx','\\ge','\\le','\\geq','\\leq','<','>')
 
     content=s
-    for sign in final_sign:
+    for sign in comparison_operators:
         if sign in s:
-            content=s[s.rfind(sign)+1:]
-            break
+            rfind_index = s.rfind(sign)
+            if rfind_index != -1:
+                content = s[rfind_index + 1:]
+    if strip_whitespace:
+        return content.strip()
+    return content
 
-    return content.strip() if strip_whitespace else content
 
 def first_pre_process(s,extrac_box=True):
+    """
+    Perform the first stage of LaTeX string preprocessing.
+
+    if not brackets_balanced(s):
+        raise ValueError("The input string has unbalanced brackets. Please check the LaTeX expression.")
+    equality or comparison operator.
+
+    Args:
+        s (str): The input LaTeX string to preprocess.
+        extrac_box (bool): If True, extracts the content inside a '\\boxed' command. Defaults to True.
+
+    Returns:
+        str: The preprocessed LaTeX string.
+    """
     #s=remove_non_ascii(s)
     s=s.replace('\\{','(') 
     s=s.replace('\\}',')')
@@ -305,18 +376,34 @@ def first_pre_process(s,extrac_box=True):
         boxed_content,exist_overall_brace=remove_overall_brace(boxed_content)
         cnt+=1
 
-    if '\\quad' in s:
-        s=s.split('\\quad')[0]
+    if '\\quad' in boxed_content:
+        boxed_content = boxed_content.split('\\quad')[0]
 
     last_equal_content=extract_last_equal_content(boxed_content)
 
     exist_overall_brace=True
     cnt=0
-    while exist_overall_brace and cnt<19:
+    while exist_overall_brace and cnt<10:
         last_equal_content,exist_overall_brace=remove_overall_brace(last_equal_content)
         cnt+=1
     return last_equal_content
 def second_pre_process(s):
+    """
+    Perform the second stage of LaTeX string preprocessing.
+
+    This function removes or modifies specific LaTeX commands and content to standardize
+    the input string for further processing. It handles commands like '\\text', '\\mathbf',
+    and '\\mathrm', removes unnecessary content, and applies transformations such as
+    converting fractions and vector syntax.
+
+    Args:
+        s (str): The input LaTeX string to preprocess.
+
+    Returns:
+        str: The preprocessed LaTeX string.
+    """
+
+
     kill_commands=[
         '\\begin',
         '\\end'
@@ -375,7 +462,7 @@ def second_pre_process(s):
     s=convert_vec_syntax(s)
     s=exp_frac(s)
     #s=remove_outer_braces(s)
-    if s[-1]=='.':
+    if s and s[-1] == '.':
         return s[:-1]
     return s
 
@@ -413,15 +500,24 @@ class MyNormalization:
 
 def master_convert(s):
     """
-    The only function needed
+    The only function needed to convert a LaTeX string into a SymPy expression.
+
     Args:
-        s(str): the input string
-    Return:
-        Sym(Sympy Expression): the output sympy string
+        s (str): The input LaTeX string. It should be a valid LaTeX mathematical expression, 
+                 such as equations, fractions, or symbols, and must have balanced brackets.
+
+    Returns:
+        Sym (Sympy Expression): A SymPy expression representing the mathematical content of the input string.
+                                The returned object can be used for symbolic computation, simplification, 
+                                or evaluation using SymPy's functionality.
+
+    Example:
+        >>> master_convert("\\frac{1}{2} + x")
+        1/2 + x
     """
-    s1=first_pre_process(s)
+    preprocessed_stage1=first_pre_process(s)
 
-    s2=second_pre_process(s1)
+    preprocessed_stage2=second_pre_process(preprocessed_stage1)
 
-    Sym=latex2sympy(s2,normalization_config=MyNormalization(),conversion_config=MyConfig)
+    Sym=latex2sympy(preprocessed_stage2,normalization_config=MyNormalization(),conversion_config=MyConfig())
     return Sym

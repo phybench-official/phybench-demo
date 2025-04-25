@@ -1,20 +1,18 @@
 from sympy import *
 from sympy.core.function import AppliedUndef
-from latex2sympy2_extended import latex2sympy
-from sympy.core.numbers import Pi, Exp1,I,Infinity
+from sympy.core.numbers import Pi, Exp1,I,Infinity,NegativeInfinity
 import numpy as np
 import timeout_decorator
 from extended_zss import ext_distance
 from latex_pre_process import *
-import time
 from sympy.simplify import *
 """
-Guide:You only need to use fool_zss
-and install:
-sympy
-numpy
-latex2sympy2_extended
-timeout_decorator
+Guide:
+You only need to use EED and install the following packages:
+- sympy
+- numpy
+- latex2sympy2_extended
+- timeout_decorator
 """
 
 """
@@ -25,9 +23,7 @@ Variables: letters like x, y, z, or specified terms in problems (e.g., ħ, c, G)
 Functions: sine, cosine, exponential, logarithm, etc.
 Operators: basic binary operations including addition, multiplication, and exponentiation.
 """
-"""
-The costs can be modified if you think their values are different
-"""
+# The costs can be modified if you think their values are different
 insert_cost={"number":1,"symbol":1,"operator":1,"function":1}
 delete_cost={"number":1,"symbol":1,"operator":1,"function":1}
 update_cost={"number":1,"symbol":1,"operator":1,"function":1}
@@ -49,10 +45,7 @@ def update_func(x,y):
         return update_cost[x.label.split("_")[0]]
     return change_type_cost
 def remove_func(x):
-    return 1
     return delete_cost[x.label.split("_")[0]]
-
-
 
 def remove_tree_func(x):
     if not x.children:
@@ -69,6 +62,24 @@ def insert_tree_func(x):
 
 
 def calc_tree_size(node):
+    """
+    Calculate the size of a subtree based on its total insertion cost.
+    The function computes the size of a subtree by summing up the insertion 
+    costs of the current node and all its descendant nodes. If the subtree 
+    size has already been calculated and stored in `node.subtree_size`, it 
+    returns the cached value to avoid redundant computation.
+    Args:
+        node (Node): The root node of the subtree for which the size is to 
+                     be calculated
+    Returns:
+        int: The total size of the subtree, calculated as the sum of the 
+             insertion costs of the current node and all its descendants.
+    Notes:
+        - The `insert_cost` dictionary is assumed to be globally defined 
+          and maps node labels to their respective insertion costs.
+        - The function modifies the `subtree_size` attribute of the input 
+          node to store the calculated subtree size for future use.
+    """
     """The size of a subtree equals to its total insertion cost"""
     
     total = insert_cost[node.label.split("_")[0]]
@@ -116,18 +127,38 @@ def time_equal(expr1,expr2):
         return False
 
 
-
-
-
-
 def sympy_to_tree(expr):
+    """
+    Convert a SymPy expression into a tree structure.
+    This function takes a SymPy expression and recursively converts it into a tree
+    representation using `TreeNode` objects. Each node in the tree is labeled based
+    on the type of the SymPy expression (e.g., number, symbol, operator, or function),
+    and its children represent the arguments of the expression.
+    Args:
+        expr (sympy.Basic): The SymPy expression to be converted.
+    Returns:
+        TreeNode: The root node of the tree representation of the SymPy expression.
+    Raises:
+        ValueError: If the SymPy expression contains an unsupported type.
+    Supported Types:
+        - Numbers: Integer, Pi, Exp1, Float, Rational, Infinity, NegativeInfinity
+        - Symbols: Symbol
+        - Binary Operators: Add, Mul, Pow
+        - Functions: Any subclass of `sympy.Function`
+    Example:
+        >>> from sympy import symbols, sin, pi
+        >>> x, y = symbols('x y')
+        >>> expr = x + y * sin(pi)
+        >>> tree = sympy_to_tree(expr)
+        >>> print(tree)
+    """
     #print(expr)
 
     """Convert the sympy expression to a tree"""
     # Symbols and constants
-    if isinstance(expr, (Integer,Pi,Exp1,Float,Rational,Infinity)):
+    if isinstance(expr, (Integer, Pi, Exp1, Float, Rational, Infinity, NegativeInfinity)):
         return TreeNode(label="number_"+str(expr), children=[])
-    elif isinstance(expr,(Symbol)):
+    elif isinstance(expr, (Symbol,)):
 
         return TreeNode(label="symbol_"+str(expr),children=[])
 
@@ -149,7 +180,7 @@ def sympy_to_tree(expr):
 
     else:
         #print(expr)
-        print(f"Unsupported Sympy type:{type(expr).__name__}")
+        print(f"Unsupported Sympy type: {type(expr).__name__}, Expression: {expr}")
         raise ValueError(f"Unsupported SymPy type: {type(expr)}")
 
 class TreeNode:
@@ -194,16 +225,41 @@ class DistError(Exception):
     def __init__(self, message="DistanceError"):
         super().__init__(message)
 
-def fool_zss(answer_latex,test_latex,debug_mode=False):
-
-
+def EED(answer_latex,test_latex,debug_mode=False):
     """
-    Args:
-        answer_latex: the latex expression of answer expression
-        test_latex: the same
-        debug_mode: whether it raise errors or just skip it
-    Returns:
-        score,relative_distance,answer_tree_size,distance
+        Computes the similarity score and distance metrics between two LaTeX expressions.
+        This function evaluates the equivalence of two mathematical expressions represented 
+        in LaTeX format. It uses symbolic computation and tree-based distance metrics to 
+        calculate a similarity score and other related metrics.
+    
+            tuple: A tuple containing the following elements:
+                - score (float): The similarity score between the two expressions (0 to 100).
+                - relative_distance (float): The normalized distance between the two expressions.
+                - answer_tree_size (int): The size of the expression tree for the answer.
+                - distance (float): The raw distance between the two expression trees.
+        Notes:
+            - If either input contains unsupported LaTeX constructs (e.g., integrals or sums), 
+              the function returns default values indicating failure.
+            - If the test expression is significantly longer than the answer expression, 
+              the function assumes they are not equivalent.
+            - The function uses symbolic simplification and tree-based distance metrics to 
+              evaluate equivalence.
+            - In case of errors during processing, the function returns default values unless 
+              `debug_mode` is enabled, in which case it raises specific exceptions.
+        Exceptions:
+            - LaTeXError: Raised when LaTeX conversion to symbolic expressions fails (if `debug_mode` is True).
+            - SymPyError: Raised when symbolic simplification or tree construction fails (if `debug_mode` is True).
+            - DistError: Raised when distance calculation fails (if `debug_mode` is True).
+        Args:
+            answer_latex: the latex expression of answer expression
+            test_latex: the latex expression of test expression
+            debug_mode: whether it raise errors or just skip it
+        Returns:
+             tuple: A tuple containing the following elements:
+                - score (float): The similarity score between the two expressions (0 to 100).
+                - relative_distance (float): The normalized distance between the two expressions.
+                - answer_tree_size (int): The size of the expression tree for the answer.
+                - distance (float): The raw distance between the two expression trees.
     """
 
     if not test_latex:
@@ -254,7 +310,7 @@ def fool_zss(answer_latex,test_latex,debug_mode=False):
     except:
         print("Something happened during simplification,returning zero")
         if debug_mode:
-            raise SymPyError(f"Failed to simplify the sympy expression")
+            raise SymPyError(f"Failed to simplify the sympy expression. Expressions: answer_exp={answer_exp}, test_exp={test_exp}")
         return 0,-1,-1,-1
 
     try:
@@ -293,7 +349,7 @@ def fool_zss(answer_latex,test_latex,debug_mode=False):
     except:
         print("Failed to calculate distance")
         if debug_mode:
-            raise DistError(f"Failed to simplify the sympy expression")
+            raise DistError(f"Failed to calculate the distance between trees.\n GT:{answer_latex}\n GEN:{test_latex}")
         return 0,-1,calc_tree_size(tree_answer),-1
     tree_size=calc_tree_size(tree_answer)
     distance_number=distance
