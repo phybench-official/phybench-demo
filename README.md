@@ -1,5 +1,3 @@
-# An Embodied Generalist Agent in 3D World
-
 This is the source code repository for the official [PHYBench website](https://phybench-official.github.io/phybench-demo/).
 
 If you find PHYBench useful for your work, please cite:
